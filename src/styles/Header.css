@@ -1,0 +1,16 @@
+#header-section {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    width:100vw;
+}
+
+#header-title {
+    background-color: rgb(144, 144, 144);
+    width:80vw;
+}
+
+#account-button {
+    background-color: rgb(198, 198, 198);
+    width: 20vw;
+}

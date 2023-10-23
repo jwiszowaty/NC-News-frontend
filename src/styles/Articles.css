@@ -1,0 +1,70 @@
+#articles-section {
+    border: 2px solid black;
+    margin: 10px;
+}
+
+#article-card {
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 50px 50px auto;
+    grid-template-rows: 20px 20px 60px 60px 60px;
+    gap: 0px 10px;
+    place-items: center;
+
+    grid-template-areas: 
+        "topic topic author author date date date"
+        "topic topic author author time time time"
+        "image image title title title title title"
+        "image image title title title title title"
+        "image image comment comment . vote vote"
+}
+.articles-topic {
+    border: 1px solid rgb(101, 101, 101);
+    box-shadow: -2px 0px 20px 1px rgb(122, 122, 122);;
+    border-radius: 5px;
+    padding:10px;
+    grid-area: topic;
+}
+.articles-author {
+    grid-area: author;
+}
+.articles-date {
+    grid-area: date;
+}
+.articles-time {
+    grid-area: time;
+}
+.articles-title {
+    grid-area: title;
+}
+.article-image-container {
+    grid-area: image;
+    width:100px;
+    height:150px;
+    overflow: hidden;
+    background-color: red;
+    box-shadow: -3px 5px 10px 1px rgb(122, 122, 122);
+}
+.comment-div {
+    grid-area: comment;
+    display:flex;
+    align-content: center;
+}
+.vote-div {
+    grid-area: vote;
+    display: flex;
+}
+.article-image {
+    height: 100%;
+    object-fit: contain;
+}
+.articles-comment-icon, .articles-vote-icon {
+    width:30px;
+    height:30px;
+}
+.comment-count, .vote-count {
+    margin:0;
+    
+}
