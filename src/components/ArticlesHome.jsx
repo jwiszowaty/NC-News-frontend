@@ -3,30 +3,33 @@ import commentIcon from '../assets/comment-icon.png'
 import voteIcon from '../assets/vote-icon.png'
 import axios from 'axios'
 import Loading from './Loading'
+import { Link } from 'react-router-dom'
+import '../styles/Articles.css'
 
-function NoComments({ setArticles, articles, setSeeComments }) {
+function ArticlesHome() {
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [articles, setArticles] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        axios
-          .get('https://be-jw-news.onrender.com/api/articles')
-          .then((response) => {
-            setArticles(response.data.articles)
-            setIsLoading(false)
-          })
-    }, [])
-  
+  useEffect(() => {
+    axios
+      .get('https://be-jw-news.onrender.com/api/articles')
+      .then((response) => {
+        setArticles(response.data.articles.slice(0, 5))
+        setIsLoading(false)
+      })
+  }, [])
+
   if (isLoading) return <Loading />
   return (
     <>
-    <section key='articles-section' id='articles-section'>
-        
-          {
-            articles.map((article) => {
-              return (
-                <>
-                  <div  key={article.article_id} id='article-card'>
+      <section key='articles-section' id='articles-section'>
+        {
+          articles.map((article) => {
+            return (
+              <>
+                <Link to={{ pathname: `/articles/${article.article_id}` }}>
+                  <div key={article.article_id} id='article-card'>
                     <p className='articles-topic'>{article.topic}</p>
                     <p className='articles-author'>{article.author}</p>
                     <p className='articles-date'>{article.created_at.slice(0, 10)}</p>
@@ -48,13 +51,15 @@ function NoComments({ setArticles, articles, setSeeComments }) {
                       <img className='articles-vote-icon' src={voteIcon} />
                     </div>
                   </div>
-                </>
-              )
-            })
-          }
-        </section>
+                </Link>
+              </>
+            )
+          })
+        }
+        <div className='all-button-container'><Link className='all-button-link' to='/articles'><button className='all-button'>all articles</button></Link></div>
+      </section>
     </>
   )
 }
 
-export default NoComments
+export default ArticlesHome
