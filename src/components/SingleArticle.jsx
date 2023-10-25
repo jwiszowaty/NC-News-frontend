@@ -14,7 +14,6 @@ function SingleArticle() {
   const [articles, setArticles] = useState([])
   const [showComments, setShowComments] = useState(false)
   const { article_id } = useParams()
-
   useEffect(() => {
     axios
       .get(`https://be-jw-news.onrender.com/api/articles/${article_id}`)
@@ -22,15 +21,13 @@ function SingleArticle() {
         setArticles([response.data.article])
         setIsLoading(false)
       })
-  }, [])
+  }, [voted])
 
   const toggleComments = () => {
     if (showComments) {
       setShowComments(false)
-      console.log('off');
     } else {
       setShowComments(true)
-      console.log('on');
     }
   }
   if (isLoading) return <Loading />
@@ -54,7 +51,7 @@ function SingleArticle() {
                     <img className='article-image' src={article.article_img_url} />
                   </div>
                   <div className="comment-div" onClick={toggleComments}>
-                    <p className='comment-count'>{article.comment_count}</p>
+                    <p className='comment-count'>{+article.comment_count}</p>
                     <img className='article-comment-icon' src={commentIcon} />
                   </div>
                   <div className="vote-div">
