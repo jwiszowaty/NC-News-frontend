@@ -114,3 +114,13 @@ a {
 .comment-count, .vote-count {
     margin:0;
 }
+.article-vote-icon[data-voted='true'] {
+    background-image: url('../assets/full-heart.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.article-vote-icon[data-voted='false'] {
+    background-image: url('../assets/empty-heart.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

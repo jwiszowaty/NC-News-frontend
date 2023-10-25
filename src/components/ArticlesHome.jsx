@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 import '../styles/Articles.css'
 
 function ArticlesHome() {
-
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,6 +25,7 @@ function ArticlesHome() {
       <section key='articles-section' id='articles-section'>
         {
           articles.map((article) => {
+            const userVoted = localStorage.getItem(`hasVoted-${article.article_id}`) === 'true'
             return (
               <>
                 <Link to={{ pathname: `/articles/${article.article_id}` }}>
@@ -48,8 +48,9 @@ function ArticlesHome() {
                     </div>
                     <div className="vote-div">
                       <p className='vote-count'>{article.votes}</p>
-                      <img className='articles-vote-icon' src={voteIcon} />
+                      <div className='article-vote-icon' data-voted={userVoted}></div>
                     </div>
+                    
                   </div>
                 </Link>
               </>

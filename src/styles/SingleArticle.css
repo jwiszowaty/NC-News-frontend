@@ -55,7 +55,7 @@ a {
     margin: 10px;
     padding: 10px;
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-columns: 50px 50px auto 50px 50px;
     grid-template-rows: 100px 100px 100px auto 100px;
     gap: 0px 10px;
     place-items: center;
@@ -65,7 +65,7 @@ a {
         "title title title title title"
         "topic  author author date time"
         "body body body body body"
-        "comment comment . vote vote"
+        "comment comment . vote voted-response"
 }
 .article-image-container {
     grid-area: image;
@@ -110,10 +110,23 @@ a {
     height: 100%;
     object-fit: contain;
 }
+.article-vote-icon[data-voted='true'] {
+    background-image: url('../assets/full-heart.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.article-vote-icon[data-voted='false'] {
+    background-image: url('../assets/empty-heart.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .article-comment-icon, .article-vote-icon {
     width:30px;
     height:30px;
 }
 .comment-count, .vote-count {
     margin:0;
+}
+.voted-response {
+    grid-area: voted-response;
 }
