@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Explore from './Explore'
-import Articles from './Articles'
+import ArticlesHome from './ArticlesHome'
 function Home() {
+  
   return (
       <>
       <Header />
       <Explore />
-      <Articles />
+      <ArticlesHome />
       </>
   )
 }

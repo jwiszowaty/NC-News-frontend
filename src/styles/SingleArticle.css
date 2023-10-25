@@ -2,7 +2,7 @@ a {
     width:100%;
     height:100%;
 }
-#articles-section {
+#article-section {
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -45,46 +45,27 @@ a {
     width:100%;
     border-radius: 50px;
 }
-#articles-section {
+#article-section {
     border: 2px solid black;
     margin: 10px;
 }
 
-#article-card {
+#single-article-card {
     border: 2px solid black;
     margin: 10px;
     padding: 10px;
     display: grid;
-    grid-template-columns: 50px 50px auto;
-    grid-template-rows: 20px 20px 60px 60px 60px;
+    grid-template-columns: 50px 50px 50px 50px 50px;
+    grid-template-rows: 100px 100px 100px auto 100px;
     gap: 0px 10px;
     place-items: center;
 
     grid-template-areas: 
-        "topic topic author author date date date"
-        "topic topic author author time time time"
-        "image image title title title title title"
-        "image image title title title title title"
-        "image image comment comment . vote vote"
-}
-.articles-topic {
-    border: 1px solid rgb(101, 101, 101);
-    box-shadow: -2px 0px 20px 1px rgb(122, 122, 122);;
-    border-radius: 5px;
-    padding:10px;
-    grid-area: topic;
-}
-.articles-author {
-    grid-area: author;
-}
-.articles-date {
-    grid-area: date;
-}
-.articles-time {
-    grid-area: time;
-}
-.articles-title {
-    grid-area: title;
+        "image image image image image"
+        "title title title title title"
+        "topic  author author date time"
+        "body body body body body"
+        "comment comment . vote vote"
 }
 .article-image-container {
     grid-area: image;
@@ -94,20 +75,42 @@ a {
     background-color: red;
     box-shadow: -3px 5px 10px 1px rgb(122, 122, 122);
 }
-.comment-div {
-    grid-area: comment;
-    display:flex;
-    align-content: center;
+.article-title {
+    grid-area: title;
+}
+.article-topic {
+    border: 1px solid rgb(101, 101, 101);
+    box-shadow: -2px 0px 20px 1px rgb(122, 122, 122);;
+    border-radius: 5px;
+    padding:10px;
+    grid-area: topic;
 }
 .vote-div {
     grid-area: vote;
     display: flex;
 }
+.article-author {
+    grid-area: author;
+}
+.article-date {
+    grid-area: date;
+}
+.article-time {
+    grid-area: time;
+}
+.comment-div {
+    grid-area: comment;
+    display:flex;
+    align-content: center;
+}
+.article-body {
+    grid-area: body;
+}
 .article-image {
     height: 100%;
     object-fit: contain;
 }
-.articles-comment-icon, .articles-vote-icon {
+.article-comment-icon, .article-vote-icon {
     width:30px;
     height:30px;
 }
