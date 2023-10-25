@@ -1,0 +1,102 @@
+.left {
+    width:50%;
+    height: 100%;
+    position: fixed;
+    left:0%;
+    border:none;
+    z-index: 2;
+}
+.right {
+    width:50%;
+    height: 100%;
+    position: fixed;
+    right:0%;
+    border:none;
+    z-index: 2;
+}
+.left-img {
+    height:100%;
+    background-image: url('src/assets/black.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% center;
+    border:none;
+    z-index: 2;
+}
+.right-img {
+    height:100%;
+    background-image: url('src/assets/black.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% center;
+    border:none;
+    z-index: 2;
+}
+.left[data-start='true'] {
+    animation: left 50s ease-in 0s forwards;
+}
+.right[data-start='true'] {
+    animation: right 50s ease-in 0s forwards;
+}
+.left-img[data-start='true'] {
+    animation: left-img 50s linear 0s forwards
+}
+.right-img[data-start='true'] {
+    animation: right-img 50s linear 0s forwards
+}
+@keyframes left-img {
+    0%, 4% {
+        background-image: url('src/assets/black.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% center;
+    }
+    5%, 38% {
+        background-image: url('src/assets/green.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% center;
+    }
+    39%, 100%{
+        background-image: url('src/assets/left-studio.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% center;
+    }
+}
+@keyframes right-img {
+    0%, 4% {
+        background-image: url('src/assets/black.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% center;
+    }
+    5%, 38% {
+        background-image: url('src/assets/green.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% center;
+    }
+    39%, 100%{
+        background-image: url('src/assets/right-studio.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% center;
+    }
+}
+@keyframes left {
+    0%, 50% {
+        left:0%;
+    }
+    100% {
+        left:-50%;
+ }
+}
+@keyframes right {
+    0%, 50% {
+        right:0%;
+    }
+    100% {
+        right:-50%;
+ }
+}

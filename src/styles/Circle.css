@@ -1,0 +1,311 @@
+audio {
+    position: fixed;
+    width:100px;
+    top: 0vh;
+    left: 0vw;
+    z-index: 2;
+  }
+#circle-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+  .circle {
+    position: fixed;
+    width: 270px;    
+    padding-bottom: 270px;
+    top: 35%;
+    background-image: url("../assets/play-button.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 2px black inset;
+    border: none;
+    z-index: 2;
+  }
+  .circle[data-start='true'] {
+      animation: start 100s linear 0.75s forwards;
+      animation-fill-mode: forwards;
+  }
+
+  @keyframes start {
+    0% {
+        background: #e40303;
+    }
+    0.5% {
+      background: #ff8c00;
+    }
+    1% {
+        background: #ffed00;
+    }
+    1.5% {
+      background: #008026;
+    }
+    2% {
+        background: #24408e;
+    }
+    2.5% {
+      background: #732982;
+    }
+    3% {
+      background: #5bcefa;
+    }
+    3.5% {
+      background: #f5a9b8;
+    }
+    4.242% {
+        background: black;
+    }
+  
+    4.243% {
+        background: white;
+    }
+  
+    4.408% {
+        background: black;
+    }
+  
+    4.409% {
+        background: white;
+    }
+  
+    4.789% {
+        background: black;
+    }
+  
+    4.790% {
+        background: white;
+    }
+  
+    5.191% {
+        background: black;
+    }
+  
+    5.192% {
+        background: white;
+    }
+  
+    5.403% {
+        background: black;
+    }
+  
+    5.404% {
+        background: white;
+    }
+  
+    5.896% {
+        background: black;
+    }
+  
+    5.897% {
+        background: white;
+    }
+  
+    6.202% {
+        background: black;
+    }
+  
+    6.203% {
+        background: white;
+    }
+  
+    6.516% {
+        background: black;
+    }
+  
+    6.517% {
+        background: white;
+    }
+  
+    7.072% {
+        background: black;
+    }
+  
+    7.073% {
+        background: white;
+    }
+  
+    7.400% {
+        background: black;
+    }
+  
+    7.401% {
+        background: white;
+    }
+  
+    7.781% {
+        background: black;
+    }
+  
+    7.782% {
+        background: white;
+    }
+  
+    8.612% {
+        background: black;
+    }
+  
+    8.613% {
+        background: white;
+    }
+  
+    9.573% {
+        background: black;
+    }
+  
+    9.574% {
+        background: white;
+    }
+  
+    9.955% {
+        background: black;
+    }
+  
+    9.956% {
+        background: white;
+    }
+  
+    10.804% {
+        background: black;
+    }
+  
+    10.805% {
+        background: white;
+    }
+  
+    11.479% {
+        background: black;
+    }
+  
+    11.480% {
+        background: white;
+    }
+  
+    11.799% {
+      background: black;
+    }
+  
+    11.800% {
+      background: white;
+    }
+  
+    12.300% {
+      background: black;
+    }
+  
+    12.301% {
+        background: black;
+    }
+  
+    12.302% {
+        background: white;
+    }
+  
+    13.229% {
+        background: black;
+    }
+  
+    13.230% {
+        background: white;
+    }
+  
+    13.495% {
+        background: black;
+    }
+  
+    13.496% {
+        background: white;
+    }
+  
+    13.742% {
+        background: black;
+    }
+  
+    13.743% {
+        background: white;
+    }
+  
+    14.037% {
+        background: black;
+    }
+  
+    14.038% {
+        background: white;
+    }
+  
+    14.679% {
+        background: black;
+    }
+  
+    14.680% {
+        background: white;
+    }
+  
+    15.075% {
+        background: black;
+    }
+  
+    15.076% {
+        background: white;
+    }
+  
+    15.917% {
+        background: black;
+    }
+  
+    15.918% {
+        background: white;
+    }
+  
+    16.673% {
+        background: black;
+    }
+  
+    16.674%, 22% {
+        background-image: url("../assets/logo.jpeg");
+        background-size: contain;
+        box-shadow: 0px 0px 10px 2px black inset;
+    }
+    23% {
+      background-image: url("../assets/logo.jpeg");
+        background-size: contain;
+        rotate: 0deg;
+        box-shadow: 0px 0px 0px 5px black inset;
+    }
+    44% {
+        background-image: url("../assets/logo.jpeg");
+        background-size: contain;
+        rotate: 0deg;
+        width: 270px;    
+        padding-bottom: 270px;
+        top: 35%;
+        box-shadow: 0px 0px 0px 0px black inset;
+        rotate: 90deg;
+        animation-timing-function: linear;
+    }
+  
+    45% {
+        background-image: url("../assets/logo.jpeg");
+        background-size: contain;
+        width: 100px;
+        top: -50px;
+        padding-bottom: 100px;
+        box-shadow: 0px 0px 0px 0px black inset;
+        animation-timing-function: cubic-bezier(1, 0, 1, 1);
+        z-index: 2;
+    }
+  
+    100% {
+        background-image: url("../assets/logo.jpeg");
+        background-size: contain;
+        width: 100px;
+        padding-bottom: 100px;
+        top: -50px;
+        box-shadow: 0px 0px 0px 0px black inset;
+        animation-timing-function: cubic-bezier(1, 0, 1, 1);
+        z-index: 0;
+    }
+  }

@@ -8,7 +8,7 @@ import '../styles/Articles.css'
 
 function ArticlesHome() {
   const [articles, setArticles] = useState([])
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
