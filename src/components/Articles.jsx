@@ -10,7 +10,7 @@ import Explore from './Explore'
 
 function Articles() {
   const [articles, setArticles] = useState([])
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(5)
 
   useEffect(() => {
