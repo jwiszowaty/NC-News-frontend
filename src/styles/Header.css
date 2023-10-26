@@ -1,16 +1,52 @@
 #header-section {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    width:100vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 86.11px;
+    grid-template-areas: 'title account';
+    border-bottom: 2px solid black;
 }
-
+#header-section > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:black;
+    font-size: 130%;
+    z-index:2;
+}
 #header-title {
-    background-color: rgb(144, 144, 144);
-    width:80vw;
+    grid-area: title;
+    position: relative;
+    left:-11%;
 }
 
 #account-button {
-    background-color: rgb(198, 198, 198);
-    width: 20vw;
+    grid-area: account;
+    position: relative;
+    left:9%;
+}
+.logo-container {
+    display: flex;
+    width:100vw;
+    height:86.11px;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top:0;
+
+}
+.head-logo {
+    /* grid-area: logo; */
+    width:125px;
+}
+#header-section > a:hover {
+    text-decoration:double;
+    color:red;
+    font-weight: 700;
+}
+#header-section > a:active {
+    text-decoration:double;
+    color:red;
+    font-weight: 900;
+    font-size: 150%;
 }
