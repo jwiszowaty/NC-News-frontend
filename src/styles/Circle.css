@@ -1,9 +1,9 @@
 audio {
     position: fixed;
-    width:100px;
-    top: 0vh;
-    left: 0vw;
-    z-index: 2;
+    width:220px;
+    bottom: 0vh;
+    right: 0vw;
+    z-index: 1;
   }
 #circle-button {
     display: flex;
@@ -27,7 +27,7 @@ audio {
     z-index: 2;
   }
   .circle[data-start='true'] {
-      animation: start 100s linear 0.25s forwards;
+      animation: start 100s linear 0s forwards;
       animation-fill-mode: forwards;
   }
 

@@ -8,6 +8,7 @@ function Circle({ start, setStart }) {
         console.log(audio);
         setStart(true);
         if (audio.current) {
+            audio.current.volume = 0.25
             audio.current.play().catch(error => {
                 console.error("Error playing the audio:", error)
             });
@@ -20,7 +21,6 @@ function Circle({ start, setStart }) {
             className="circle"
             data-start={start.toString()}
             onClick={handleClick}
-            onAnimationEnd={()=>{setStart=0}}
             ></button>
             <audio ref={audio} src='../../public/americaHas.mp3' controls/>
         </div>

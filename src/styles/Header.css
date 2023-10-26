@@ -1,8 +1,8 @@
 #header-section {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 33% auto 33%;
     grid-template-rows: 86.11px;
-    grid-template-areas: 'title account';
+    grid-template-areas: 'title logo account';
     border-bottom: 2px solid black;
 }
 #header-section > a{
@@ -16,28 +16,15 @@
 }
 #header-title {
     grid-area: title;
-    position: relative;
-    left:-11%;
 }
 
 #account-button {
     grid-area: account;
-    position: relative;
-    left:9%;
-}
-.logo-container {
-    display: flex;
-    width:100vw;
-    height:86.11px;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    top:0;
-
 }
 .head-logo {
-    /* grid-area: logo; */
-    width:125px;
+    place-self: center;
+    grid-area: logo;
+    height:86.11px;
 }
 #header-section > a:hover {
     text-decoration:double;

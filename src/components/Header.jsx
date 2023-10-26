@@ -7,12 +7,11 @@ function Header() {
   return (
     <>
       <section id='header-section' className='header'>
-      <Link to='/home'><div id='header-title'>NC News</div></Link>
-      <Link to='/account'><div id='account-button'>Account</div></Link>
-      </section>
-      <div className='logo-container'>
+        <Link to='/home' id='header-title'><div >NC News</div></Link>
       <img className='head-logo' src={head} />
-      </div>
+      <Link to='/account' id='account-button'><div >Account</div></Link>
+      </section>
+      
     </>
     
   )
