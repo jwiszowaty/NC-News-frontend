@@ -45,13 +45,13 @@
     animation: right-img 50s linear 0s forwards
 }
 @keyframes left-img {
-    0%, 4% {
+    0%, 4.9% {
         background-image: url('src/assets/black.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
     }
-    5%, 38% {
+    5%, 38.5% {
         background-image: url('src/assets/green.jpeg');
         background-repeat: no-repeat;
         background-size: cover;

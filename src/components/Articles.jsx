@@ -3,7 +3,7 @@ import commentIcon from '../assets/comment-icon.png'
 import voteIcon from '../assets/vote-icon.png'
 import axios from 'axios'
 import Loading from './Loading'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import '../styles/Articles.css'
 import Header from './Header'
 import Explore from './Explore'
@@ -12,15 +12,18 @@ function Articles() {
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(5)
-  
+  const [ searchParams, setSearchParams ] = useSearchParams()
+  const topicQuery = searchParams.get('topic')
+
+  console.log(topicQuery);
   useEffect(() => {
     axios
-      .get('https://be-jw-news.onrender.com/api/articles')
+      .get(topicQuery ? `https://be-jw-news.onrender.com/api/articles?topic=${topicQuery}` : 'https://be-jw-news.onrender.com/api/articles')
       .then((response) => {
         setArticles(response.data.articles.slice(0, count))
         setIsLoading(false)
       })
-  }, [count])
+  }, [count, searchParams])
 
   const addArticles = () => {
     const increase = count + 5
