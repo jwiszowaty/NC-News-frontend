@@ -6,13 +6,13 @@ function Account() {
   const { userData, setUserData } = useContext(UserDataContext)
   const navigate = useNavigate()
   const handleLogout = () => {
-    setUserData(null)
+    localStorage.clear()
     setTimeout(() => {
       navigate('/')
     }, 3000)
     
   }
-  if (userData === null) return <h1>Logging out . . .</h1>
+  if (userData === undefined) return <h1>Logging out . . .</h1>
   if (userData === 'no-user') return ( 
     <>
       <Link to='/home'><button>home</button></Link>

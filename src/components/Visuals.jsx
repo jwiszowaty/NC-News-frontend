@@ -18,7 +18,8 @@ function Visuals() {
         await axios
           .get('https://be-jw-news.onrender.com/api/users')
           .then((response) => {
-          const users =  response.data.users;
+            const users = response.data.users;
+            console.log(username);
           const user = users.filter((user) => user.username === username)
           setUserData(user[0])
           navigate('/home')
