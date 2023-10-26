@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import commentIcon from '../assets/comment-icon.png'
 import axios from 'axios'
 import Loading from './Loading'
-import { Link,  useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../styles/SingleArticle.css'
 import Header from './Header'
 import Explore from './Explore'
@@ -12,37 +12,44 @@ function SingleArticle() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState([])
-  const [showComments, setShowComments] = useState(false)
   const { article_id } = useParams()
+  const commentsToggleLocal = localStorage.getItem(`showComments-${article_id}`) === 'true'
+  const [showComments, setShowComments] = useState(commentsToggleLocal);
   const userVoted = localStorage.getItem(`hasVoted-${article_id}`) === 'true'
   const [voted, setVoted] = useState(userVoted)
-  
+  const [disabled, setDisabled] = useState(false)
+
   useEffect(() => {
+    
     axios
       .get(`https://be-jw-news.onrender.com/api/articles/${article_id}`)
       .then((response) => {
         setArticles([response.data.article])
         setIsLoading(false)
       })
-  }, [voted])
+  }, [showComments])
 
   const toggleComments = () => {
-    if (showComments) {
-      setShowComments(false)
-    } else {
-      setShowComments(true)
-    }
+    setShowComments(!showComments)
+    localStorage.setItem(`showComments-${article_id}`, commentsToggleLocal ? 'false' : 'true')
   }
 
   const updateVote = async () => {
+    setDisabled(true)
+    if (disabled) return;
+    articles[0].votes = articles[0].votes += voted ? -1 : 1
     try {
-    await axios
-    .patch(`https://be-jw-news.onrender.com/api/articles/${article_id}`, { inc_vote: userVoted ? -1 : 1})
-    localStorage.setItem(`hasVoted-${article_id}`, (!userVoted).toString())
-    setVoted(!userVoted)
+      await axios
+        .patch(`https://be-jw-news.onrender.com/api/articles/${article_id}`, { inc_vote: userVoted ? -1 : 1 })
+      localStorage.setItem(`hasVoted-${article_id}`, (!userVoted).toString())
+      setVoted(!userVoted)
+      setTimeout(() => {
+        setDisabled(false);
+      }, 500);
     } catch (error) {
       console.log(`Error occured while voting :${error}`);
-    } 
+      setDisabled(false)
+    }
   }
 
   if (isLoading) return <Loading />
@@ -73,7 +80,7 @@ function SingleArticle() {
                     <p className='vote-count'>{article.votes}</p>
                     <div className='article-vote-icon' data-voted={voted}></div>
                   </div>
-                  {voted && <p className='voted-response' data-voted={voted}>Voted!</p>}
+                  {voted && <p className='voted-response' data-voted={voted}>Love it!</p>}
                   <div className='article-body'>{article.body}</div>
                 </div>
               </>

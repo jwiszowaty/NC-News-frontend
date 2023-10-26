@@ -1,16 +1,39 @@
 #header-section {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    width:100vw;
+    display: grid;
+    grid-template-columns: 33% auto 33%;
+    grid-template-rows: 86.11px;
+    grid-template-areas: 'title logo account';
+    border-bottom: 2px solid black;
 }
-
+#header-section > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:black;
+    font-size: 130%;
+    z-index:2;
+}
 #header-title {
-    background-color: rgb(144, 144, 144);
-    width:80vw;
+    grid-area: title;
 }
 
 #account-button {
-    background-color: rgb(198, 198, 198);
-    width: 20vw;
+    grid-area: account;
+}
+.head-logo {
+    place-self: center;
+    grid-area: logo;
+    height:86.11px;
+}
+#header-section > a:hover {
+    text-decoration:double;
+    color:red;
+    font-weight: 700;
+}
+#header-section > a:active {
+    text-decoration:double;
+    color:red;
+    font-weight: 900;
+    font-size: 150%;
 }

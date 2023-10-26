@@ -3,6 +3,7 @@ import voteIcon from '../assets/vote-icon.png'
 import axios from 'axios'
 import '../styles/Comments.css'
 import Loading from './Loading'
+import PostComment from './PostComment'
 
 function Comments({ article_id }) {
 
@@ -14,14 +15,18 @@ function Comments({ article_id }) {
         axios
             .get(`https://be-jw-news.onrender.com/api/articles/${article_id}/comments`)
             .then((response) => {
-                setComments(response.data.comments)
                 setIsLoading(false)
+                setTimeout(() => {
+                    setComments(response.data.comments)
+                },0)
+                
             })
-    }, [])
+    }, [comments])
 
     if (isLoading) return <Loading />
     return (
         <>
+            <PostComment article_id={article_id} comments={comments} setComments={setComments} />
             <section id='comments-section'>
                 {
                     comments.map((comment) => {
