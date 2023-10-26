@@ -7,7 +7,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import '../styles/Articles.css'
 import Header from './Header'
 import Explore from './Explore'
-
+import Sorting from'./Sorting'
 function Articles() {
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +35,7 @@ function Articles() {
     <>
       <Header />
       <Explore />
+      <Sorting />
       <section key='articles-section' id='articles-section'>
 
         {

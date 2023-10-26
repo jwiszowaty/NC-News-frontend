@@ -11,17 +11,20 @@ function Visuals() {
   const [start, setStart] = useState(false)
   const [username, setUsername] = useState('grumpy19')
   const { userData, setUserData } = useContext(UserDataContext)
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = async (e) => {
     e.preventDefault()
-      try {
+    try {
+        setLoading(true)
         await axios
           .get('https://be-jw-news.onrender.com/api/users')
           .then((response) => {
             const users = response.data.users;
             console.log(username);
           const user = users.filter((user) => user.username === username)
-          setUserData(user[0])
+            setUserData(user[0])
+          setLoading(false)
           navigate('/home')
           })
       } catch (error) {
@@ -39,6 +42,7 @@ function Visuals() {
             console.log(e.target.value);
             setUsername(e.target.value)
           }} required placeholder='Use "grumpy19"' ></input>
+          {loading && <h1>Logging in . . .</h1>}
           <div className='home-div'><button type='submit' className='home-button'>Log In</button></div>
         </form>
         </>
