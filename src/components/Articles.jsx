@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import commentIcon from '../assets/comment-icon.png'
 import voteIcon from '../assets/vote-icon.png'
-import axios from 'axios'
-import Loading from './Loading'
-import { Link, useSearchParams } from 'react-router-dom'
+import commentIcon from '../assets/comment-icon.png'
 import '../styles/Articles.css'
-import Header from './Header'
-import Explore from './Explore'
-
+import axios from 'axios'
+import React, {useEffect, useState } from 'react'
+import { Link, useSearchParams} from 'react-router-dom'
+import Loading from './Loading'
 function Articles() {
-  const [articles, setArticles] = useState([])
+  const [searchParams, setSearchParams] = useSearchParams()
   const [isLoading, setIsLoading] = useState(true);
+  const [articles, setArticles] = useState([])
   const [count, setCount] = useState(5)
-  const [ searchParams, setSearchParams ] = useSearchParams()
-  const topicQuery = searchParams.get('topic')
-
-  console.log(topicQuery);
+    const topicQuery = searchParams.get('topic')
+    const sortByQuery = searchParams.get('sort_by')
+    const orderQuery = searchParams.get('order')
+  
   useEffect(() => {
     axios
-      .get(topicQuery ? `https://be-jw-news.onrender.com/api/articles?topic=${topicQuery}` : 'https://be-jw-news.onrender.com/api/articles')
+      .get(topicQuery ? `https://be-jw-news.onrender.com/api/articles?sort_by=${sortByQuery}&order=${orderQuery}&topic=${topicQuery}` : `https://be-jw-news.onrender.com/api/articles?sort_by=${sortByQuery}&order=${orderQuery}`)
       .then((response) => {
         setArticles(response.data.articles.slice(0, count))
         setIsLoading(false)
       })
-  }, [count, searchParams])
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [searchParams, count])
 
   const addArticles = () => {
     const increase = count + 5
@@ -33,21 +34,18 @@ function Articles() {
   if (isLoading) return <Loading />
   return (
     <>
-      <Header />
-      <Explore />
       <section key='articles-section' id='articles-section'>
 
         {
           articles.map((article) => {
             return (
               <>
-                <Link to={{ pathname: `/articles/${article.article_id}` }}>
                   <div key={article.article_id} id='article-card'>
                     <p className='articles-topic'>{article.topic}</p>
                     <p className='articles-author'>{article.author}</p>
                     <p className='articles-date'>{article.created_at.slice(0, 10)}</p>
                     <p className='articles-time'>{article.created_at.slice(11, 19)}</p>
-                    <p className='articles-title'>{article.title}</p>
+                    <Link to={{pathname:`/article/${article.article_id}`}}><p className='articles-title'>{article.title}</p></Link>
                     <div className="article-image-container">
                       <img className='article-image' src={article.article_img_url} />
                     </div>
@@ -60,7 +58,6 @@ function Articles() {
                       <img className='articles-vote-icon' src={voteIcon} />
                     </div>
                   </div>
-                </Link>
               </>
             )
           })

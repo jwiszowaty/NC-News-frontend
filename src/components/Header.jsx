@@ -7,8 +7,8 @@ function Header() {
   return (
     <>
       <section id='header-section' className='header'>
-        <Link to='/home' id='header-title'><div >NC News</div></Link>
-      <img className='head-logo' src={head} />
+        <Link to={{pathname:'/home', search:'?limit=5'}} id='header-title'><div >NC News</div></Link>
+        <Link to={{pathname:'/home', search:'?limit=5'}}><img className='head-logo' src={head} /></Link>
       <Link to='/account' id='account-button'><div >Account</div></Link>
       </section>
       

@@ -6,14 +6,17 @@ function Account() {
   const { userData, setUserData } = useContext(UserDataContext)
   const navigate = useNavigate()
   const handleLogout = () => {
-    localStorage.clear()
     setTimeout(() => {
+      setUserData('logged-out')
+    },1000)
+    setTimeout(() => {
+      localStorage.removeItem('userData')
       navigate('/')
     }, 3000)
     
   }
-  if (userData === undefined) return <h1>Logging out . . .</h1>
-  if (userData === 'no-user') return ( 
+  if (userData === 'logged-out') return <h1>Logging out . . .</h1>
+  if (userData === null) return ( 
     <>
       <Link to='/home'><button>home</button></Link>
       <div>Account</div>

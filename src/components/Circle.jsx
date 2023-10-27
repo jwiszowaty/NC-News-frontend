@@ -5,10 +5,9 @@ function Circle({ start, setStart }) {
     const audio = useRef(null)
     
     const handleClick = () => {
-        console.log(audio);
         setStart(true);
         if (audio.current) {
-            audio.current.volume = 0.25
+            audio.current.volume = 0.1
             audio.current.play().catch(error => {
                 console.error("Error playing the audio:", error)
             });

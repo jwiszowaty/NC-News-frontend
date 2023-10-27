@@ -19,7 +19,7 @@ function Topics() {
       {
          topics.map((topic) => {
            return(
-           <Link to={{ pathname: '/articles', search: `topic=${topic.slug}` }}>
+           <Link to={{ pathname: '/articles?sort_by', search: `topic=${topic.slug}` }}>
              <div className='topic-slug'>{topic.slug}</div>
            </Link>)
         })
