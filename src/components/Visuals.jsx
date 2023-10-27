@@ -52,6 +52,7 @@ function Visuals() {
         }} required placeholder='Use "grumpy19"' ></input>
         {error && <h1>{error}, try again.</h1>}
         {loading && <h1>Logging in . . .</h1>}
+        <div className='old-tv'></div>
         <div className='home-div'><button type='submit' className='home-button'>Log In</button></div>
       </form>
     </>

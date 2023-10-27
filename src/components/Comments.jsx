@@ -13,18 +13,18 @@ function Comments({ article_id }) {
     const { userData, setUserData } = useContext(UserDataContext)
 
     const [isLoading, setIsLoading] = useState(true);
-    const [deleted, setDeleted] = useState(false)
+    const [deleted, setDeleted] = useState({status: false, id: 'id'})
 
     const [comments, setComments] = useState([])
     const handleDelete = (comment_id) => {
-        if (deleted === true) return;
-        setDeleted(true)
+        if (deleted.status === true) return;
+        setDeleted({ status: true, id: comment_id})
         axios 
         .delete(`https://be-jw-news.onrender.com/api/comments/${comment_id}`)
-            .then((response) => {
+            .then(() => {
                 console.log('comment deleted');
                 setTimeout(() => {
-                 setDeleted(false)   
+                 setDeleted({ status: false, id: 'id'})   
                 },2000)
         })
     }
@@ -36,7 +36,7 @@ function Comments({ article_id }) {
                 setIsLoading(false)
                 setTimeout(() => {
                     setComments(response.data.comments)
-                },0)
+                },1000)
                 
             })
     }, [comments])
@@ -46,11 +46,16 @@ function Comments({ article_id }) {
         <>
             <PostComment article_id={article_id} comments={comments} setComments={setComments} />
             <section id='comments-section'>
-                {deleted === true && <h1>Comment deleted successfully!</h1>}
                 {
                     comments.map((comment) => {
-                        return (
-                            <div className='comment-options'>
+                        if (comment.comment_id === deleted.id) {
+                            return (
+                                <div key={comment.comment_id} id='comment-card'>
+                                    {deleted.id === comment.comment_id && <h1>Comment deleted successfully!</h1>}
+                                </div>
+                            )
+                        } else {
+                            return (
                                 <div key={comment.comment_id} id='comment-card'>
                                     <p className='comments-author'>{comment.author}</p>
                                     <p className='comments-date'>{comment.created_at.slice(0, 10)}</p>
@@ -60,10 +65,12 @@ function Comments({ article_id }) {
                                         <div className='vote-count'><p className='votes'>{comment.votes}</p></div>
                                         <img className='comments-vote-icon' src={voteIcon} />
                                     </div>
+                                    {deleted.id === comment.comment_id && <h1>Comment deleted successfully!</h1>}
+                                    {comment.author === userData.username && <button onClick={() => handleDelete(comment.comment_id)}>Delete</button>}
                                 </div>
-                                {comment.author === userData.username && <button onClick={() => handleDelete(comment.comment_id) }>Delete</button> }
-                            </div>
-                        )
+                            )
+                        }
+                            
                     })
                 }
             </section>
