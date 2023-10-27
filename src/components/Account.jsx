@@ -25,6 +25,8 @@ function Account() {
   )
   return (
     <>
+      
+      <div className='all-button-container' onClick={()=>navigate(-1)}><button className='all-button'>Back</button></div>
     <Link to='/home'><button>home</button></Link>
       <div>Account</div>
       <h3>{userData.username}</h3>
