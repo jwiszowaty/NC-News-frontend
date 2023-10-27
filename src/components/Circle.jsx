@@ -5,7 +5,6 @@ function Circle({ start, setStart }) {
     const audio = useRef(null)
     
     const handleClick = () => {
-        console.log(audio);
         setStart(true);
         if (audio.current) {
             audio.current.volume = 0.1

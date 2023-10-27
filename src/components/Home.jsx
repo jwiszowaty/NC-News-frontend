@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import Header from './Header'
-import Explore from './Explore'
+import Search from './Search'
+import Sorting from './Sorting'
 import ArticlesHome from './ArticlesHome'
 function Home() {
   return (
-    <>
-    
+    <section id='home-section'>
       <Header />
-      <Explore />
-      <ArticlesHome />
-      </>
+      <ArticlesHome/>
+    </section>
   )
 }
 

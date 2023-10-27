@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import commentIcon from '../assets/comment-icon.png'
 import axios from 'axios'
 import Loading from './Loading'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import '../styles/SingleArticle.css'
 import Header from './Header'
-import Explore from './Explore'
+import Search from './Search'
 import Comments from './Comments'
 
 function SingleArticle() {
@@ -18,7 +18,7 @@ function SingleArticle() {
   const userVoted = localStorage.getItem(`hasVoted-${article_id}`) === 'true'
   const [voted, setVoted] = useState(userVoted)
   const [disabled, setDisabled] = useState(false)
-
+  const navigate = useNavigate()
   useEffect(() => {
     
     axios
@@ -56,7 +56,8 @@ function SingleArticle() {
   return (
     <>
       <Header />
-      <Explore />
+      <Search />
+      <div className='all-button-container' onClick={()=>navigate(-1)}><button className='all-button'>Back</button></div>
       <section key='article-section' id='single-article-section'>
 
         {
