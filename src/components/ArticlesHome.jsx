@@ -34,7 +34,7 @@ function ArticlesHome() {
                   <p className='articles-author'>{article.author}</p>
                   <p className='articles-date'>{article.created_at.slice(0, 10)}</p>
                   <p className='articles-time'>{article.created_at.slice(11, 19)}</p>
-                  <Link to={{ pathname: `/articles/${article.article_id}` }}>
+                  <Link to={{ pathname: `/article/${article.article_id}` }}>
                     <p className='articles-title'>{article.title}</p>
                   </Link>
                   <div className="article-image-container">
