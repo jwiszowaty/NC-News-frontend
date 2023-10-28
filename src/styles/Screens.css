@@ -16,7 +16,7 @@
 }
 .left-img {
     height:100%;
-    background-image: url('src/assets/black.jpeg');
+    background-image: url('../assets/black.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% center;
@@ -25,7 +25,7 @@
 }
 .right-img {
     height:100%;
-    background-image: url('src/assets/black.jpeg');
+    background-image: url('../assets/black.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0% center;
@@ -46,19 +46,19 @@
 }
 @keyframes left-img {
     0%, 4.9% {
-        background-image: url('src/assets/black.jpeg');
+        background-image: url('../assets/black.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
     }
     5%, 38.5% {
-        background-image: url('src/assets/green.jpeg');
+        background-image: url('../assets/green.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
     }
     39%, 100%{
-        background-image: url('src/assets/left-studio.jpg');
+        background-image: url('../assets/left-studio.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
@@ -66,19 +66,19 @@
 }
 @keyframes right-img {
     0%, 4.9% {
-        background-image: url('src/assets/black.jpeg');
+        background-image: url('../assets/black.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% center;
     }
     5%, 38.5% {
-        background-image: url('src/assets/green.jpeg');
+        background-image: url('../assets/green.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% center;
     }
     39%, 100%{
-        background-image: url('src/assets/right-studio.jpg');
+        background-image: url('../assets/right-studio.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% center;
