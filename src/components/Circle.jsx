@@ -21,7 +21,7 @@ function Circle({ start, setStart }) {
             data-start={start.toString()}
             onClick={handleClick}
             ></button>
-            <audio ref={audio} src='../../public/americaHas.mp3' controls/>
+            <audio ref={audio} src='../assets/americaHas.mp3' controls />
         </div>
   )
 }
