@@ -1,102 +1,160 @@
 .left {
-    width:50%;
+    width: 50%;
     height: 100%;
     position: fixed;
-    left:0%;
-    border:none;
-    z-index: 2;
+    left: 0%;
+    border: none;
+    z-index: 1;
 }
+
 .right {
-    width:50%;
+    width: 50%;
     height: 100%;
     position: fixed;
-    right:0%;
-    border:none;
-    z-index: 2;
+    right: 0%;
+    border: none;
+    z-index: 1;
 }
+
 .left-img {
-    height:100%;
+    height: 100%;
     background-image: url('../assets/black.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% center;
-    border:none;
-    z-index: 2;
+    border: none;
 }
+
 .right-img {
-    height:100%;
+    height: 100%;
     background-image: url('../assets/black.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0% center;
-    border:none;
-    z-index: 2;
+    border: none;
 }
+
 .left[data-start='true'] {
     animation: left 50s ease-in 0s forwards;
 }
+
 .right[data-start='true'] {
     animation: right 50s ease-in 0s forwards;
 }
+
 .left-img[data-start='true'] {
     animation: left-img 50s linear 0s forwards
 }
+
 .right-img[data-start='true'] {
     animation: right-img 50s linear 0s forwards
 }
+
 @keyframes left-img {
-    0%, 4.9% {
+
+    0%,
+    4.9% {
         background-image: url('../assets/black.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
     }
-    5%, 38.5% {
+
+    5%,
+    38.5% {
         background-image: url('../assets/green.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
     }
-    39%, 100%{
+
+    39%,
+    100% {
         background-image: url('../assets/left-studio.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 100% center;
     }
 }
+
 @keyframes right-img {
-    0%, 4.9% {
+
+    0%,
+    4.9% {
         background-image: url('../assets/black.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% center;
     }
-    5%, 38.5% {
+
+    5%,
+    38.5% {
         background-image: url('../assets/green.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% center;
     }
-    39%, 100%{
+
+    39%,
+    100% {
         background-image: url('../assets/right-studio.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% center;
     }
 }
+
 @keyframes left {
-    0%, 50% {
-        left:0%;
+
+    0%,
+    50% {
+        left: 0%;
     }
+
     100% {
-        left:-50%;
- }
+        left: -50%;
+    }
 }
+
 @keyframes right {
-    0%, 50% {
-        right:0%;
+
+    0%,
+    50% {
+        right: 0%;
     }
+
     100% {
-        right:-50%;
- }
+        right: -50%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    @keyframes left {
+
+        0%,
+        50% {
+            left: 0%;
+        }
+        70% {
+            left: -50%;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+    
+    @keyframes right {
+    
+        0%,
+        50% {
+            right: 0%;
+        }
+        70% {
+            right: -50%;
+        }
+        100% {
+            right: -50%;
+        }
+    }
+     
 }

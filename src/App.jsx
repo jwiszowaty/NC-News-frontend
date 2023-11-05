@@ -1,7 +1,6 @@
 import Home from './components/Home'
 import Account from './components/Account'
 import {Route, Routes} from 'react-router-dom'
-import './styles/App.css'
 import Main from './components/Main'
 import SingleArticle from './components/SingleArticle'
 import Visuals from './components/Visuals'

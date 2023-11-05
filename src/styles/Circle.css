@@ -3,18 +3,17 @@ audio {
     width:220px;
     bottom: 0vh;
     right: 0vw;
-    z-index: 1;
+    z-index: 3;
   }
 #circle-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-    height: 100%;
+    width:min-content;
+    height: min-content;
     overflow: hidden;
-    z-index: 2;
 }
-  .circle {
+.circle {
     position: fixed;
     width: 270px;    
     padding-bottom: 270px;
@@ -24,10 +23,10 @@ audio {
     border-radius: 50%;
     box-shadow: 0px 0px 10px 2px black inset;
     border: none;
-    z-index: 2;
+    z-index: 3;
   }
   .circle[data-start='true'] {
-      animation: start 100s linear 0s forwards;
+      animation: start 100s linear 0.75s forwards;
       animation-fill-mode: forwards;
   }
 
@@ -293,7 +292,7 @@ audio {
         width: 100px;
         top: -50px;
         padding-bottom: 100px;
-        box-shadow: 0px 0px 0px 0px black inset;
+        box-shadow: 0px 0px 40px 15px red;
         animation-timing-function: cubic-bezier(1, 0, 1, 1);
         z-index: 2;
     }
@@ -304,7 +303,7 @@ audio {
         width: 100px;
         padding-bottom: 100px;
         top: -50px;
-        box-shadow: 0px 0px 0px 0px black inset;
+        box-shadow: 0px 0px 40px 15px red;
         animation-timing-function: cubic-bezier(1, 0, 1, 1);
         z-index: 0;
     }

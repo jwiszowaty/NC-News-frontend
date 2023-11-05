@@ -1,0 +1,57 @@
+.login-form > h1 {
+    margin:0;
+}
+.username{
+    box-shadow: 0px 0px 40px 15px rgb(212, 0, 255);
+}
+.login-form {
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 5%;
+    width:600px;
+    height: 600px;
+    border: 3px solid black;
+    display: grid;
+    place-items: center;
+    gap: 40px 0;
+    margin-top:150px;
+    grid-template-areas: "input"
+    "username"
+    "login";
+}
+.username {
+    width: 290px;
+    height:50px;
+    grid-area: username;
+}
+.home-button {
+    border: 10px solid rgb(255, 255, 255);
+    width: 290px;
+    height:150px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-family: Helvetica, Arial;
+    font-weight: 900;
+    font-size: 60px;
+    animation: flash 0.952s linear 0s;
+    animation-iteration-count: infinite;
+    z-index: 1;
+    grid-area: login;
+}
+.home-button {
+    box-shadow: 0px 0px 40px 10px rgb(0, 255, 0);
+}
+
+@keyframes flash {
+    from {
+        border: 30px solid rgb(0, 0, 0);
+        background: radial-gradient(hsl(13, 100%, 25%) 1%,hsl(13, 100%, 40%) 5% , hsl(13, 100%, 25%) 10%,hsl(13, 100%, 45%) 15% , hsl(13, 100%, 25%) 20%,hsl(13, 100%, 50%) 25% , hsl(13, 100%, 30%) 30%,hsl(13, 100%, 45%) 35% , rgb(149, 32, 0) 40%,hsl(13, 100%, 45%) 50% , rgb(149, 32, 0) 60%,hsl(13, 100%, 45%) 70% , rgb(149, 32, 0) 80%,hsl(13, 100%, 50%) 90% , rgb(149, 32, 0) 100%);
+        color: rgb(142, 72, 25);
+    }
+    to {
+        border: 10px solid rgb(249, 215, 111);
+        background: radial-gradient(rgb(214, 46, 0) 10%, rgb(149, 32, 0))70%;
+        color: rgb(249, 215, 111);
+    }
+}
+
